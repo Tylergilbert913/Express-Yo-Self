@@ -4,15 +4,15 @@ const path = ("path");
 const app = express();
 
 
-const PORT = process.env.PORT || 3251;
+const PORT = process.env.PORT || 3253;
 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
+require('./routes/apiroutes')(app);
+require('./routes/htmlroutes')(app);
 
 
 app.listen(PORT, () => {
