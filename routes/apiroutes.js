@@ -4,21 +4,20 @@ const path = require("path");
 
 module.exports = (app) => {
 
-  // app.get('/api/notes', (req, res) => {
+  app.get('/api/notes', (req, res) => {
 
-  //   // this reads the db.json file and returns all saved notes as JSON
-  //   res.json(notes);
-  //   console.log(notes);
-  // });
+  
+    res.json(notes);
+    console.log(notes);
+  });
 
-  // // POST route for the api/notes
-  // // api/ also allows other coders to know that this is referencing json data
-  // app.post('/api/notes', (req, res) => {
-  //   let newNote = req.body;
-  //   notes.push(newNote);
-  //   dbUpdate();
-  //   return console.log(`New note added: ${newNote.title}`);
-  // });
+  
+  app.post('/api/notes', (req, res) => {
+    let newNote = req.body;
+    notes.push(newNote);
+    dbUpdate();
+    return console.log(`New note added: ${newNote.title}`);
+  });
 
   // // setting and getting a specfici ID to each note
   // app.get('/api/notes/:id', (req, res) => {
