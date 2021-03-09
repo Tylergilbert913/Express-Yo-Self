@@ -10,9 +10,9 @@ https://opensource.org/licenses/MIT
     
 This application was created with the idea of letting a user jot down notes and add them to a board for later use.
 
-Here are scrrenshots of the deploye site:
+Here are screenshots of the deployed site:
 
-    
+
 
 ## Deployed Site
 
