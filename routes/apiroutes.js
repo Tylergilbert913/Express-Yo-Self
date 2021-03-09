@@ -1,45 +1,30 @@
 const fs = require("fs");
 const path = require("path");
+const express = require("express");
 
 
 module.exports = (app) => {
 
   app.get('/api/notes', (req, res) => {
-
-  
-    res.json(notes);
-    console.log(notes);
-  });
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) throw err;
+      res.send(data);
+    })
+  })
 
   
   app.post('/api/notes', (req, res) => {
-    let newNote = req.body;
-    notes.push(newNote);
-    dbUpdate();
-    return console.log(`New note added: ${newNote.title}`);
-  });
+    let note = req.body;
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) throw err;
+      res.send(data);
+      const takerArray = JSON.parse(data);
+      noteObject.push(note);
 
-  
-  app.get('/api/notes/:id', (req, res) => {
-    res.json(notes[req.params.id]);
-  });
+      fs.writeFile('./db/db.json', JSON.stringify(takerArray), err => {
+        if (err) throw err;
+        return true;
+      });
+    })
+  })}
 
-
-  app.delete('/api/notes/:id', (req, res) => {
-    notes.splice(req.params.id, 1);
-    dbUpdate();
-    console.log(`CTRL ALT DEL ${req.params.id}`);
-  });
-
-
-  app.get('/notes', (req, res) => res.json(tableData));
-
-  app.post('../assets/notes.html', (req, res) => {
-
-
-    });
-
-    app.post('/api/clear', (req, res) => {
-
-    });
-};
