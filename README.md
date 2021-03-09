@@ -12,9 +12,9 @@ This application was created with the idea of letting a user jot down notes and 
 
 Here are screenshots of the deployed site below:
 
-    ![Screenshot (204)](https://user-images.githubusercontent.com/73138234/110415709-57039380-8060-11eb-8936-7661f179b533.png)
+   * ![Screenshot (204)](https://user-images.githubusercontent.com/73138234/110415709-57039380-8060-11eb-8936-7661f179b533.png)
 
-    ![Screenshot (205)](https://user-images.githubusercontent.com/73138234/110415720-5bc84780-8060-11eb-9352-cab78828f1b4.png)
+   * ![Screenshot (205)](https://user-images.githubusercontent.com/73138234/110415720-5bc84780-8060-11eb-9352-cab78828f1b4.png)
 
 
 ## Deployed Site
