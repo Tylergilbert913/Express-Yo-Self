@@ -19,29 +19,27 @@ module.exports = (app) => {
     return console.log(`New note added: ${newNote.title}`);
   });
 
-  // // setting and getting a specfici ID to each note
-  // app.get('/api/notes/:id', (req, res) => {
-  //   res.json(notes[req.params.id]);
-  // });
+  
+  app.get('/api/notes/:id', (req, res) => {
+    res.json(notes[req.params.id]);
+  });
 
 
-  // // because we set the id above we can now target it and delete it
-  // app.delete('/api/notes/:id', (req, res) => {
-  //   notes.splice(req.params.id, 1);
-  //   dbUpdate();
-  //   console.log(`CTRL ALT DEL ${req.params.id}`);
-  // });
+  app.delete('/api/notes/:id', (req, res) => {
+    notes.splice(req.params.id, 1);
+    dbUpdate();
+    console.log(`CTRL ALT DEL ${req.params.id}`);
+  });
 
 
-  // app.get('/notes', (req, res) => res.json(tableData));
+  app.get('/notes', (req, res) => res.json(tableData));
 
-  // app.post('../assets/notes.html', (req, res) => {
+  app.post('../assets/notes.html', (req, res) => {
 
 
-  //   });
+    });
 
-  //   app.post('/api/clear', (req, res) => {
-  //     // Empty out the arrays of data
+    app.post('/api/clear', (req, res) => {
 
-  //   });
+    });
 };
