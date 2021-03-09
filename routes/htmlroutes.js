@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require('path');
+const express = require("express");
 
 module.exports = (app) => {
   
@@ -13,13 +14,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './asset/index.html'));
 });
 
-const dbUpdate = () => {
-    fs.writeFile('./db/db.json', JSON.stringify(notes, '\t'), err => {
-        if (err) throw err;
-        return true;
-    });
-};
 
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './asset/index.html'));
+});
   
 };
