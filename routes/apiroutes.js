@@ -27,15 +27,15 @@ module.exports = (app) => {
       });
     });
 
-    app.delete('/api/notes', (req, res) => {
-      let notes = fs.readFileSync(path.join(__dirname, './db/db.json'), 'utf-8');
+    app.delete('/api/notes:id', (req, res) => {
+      let notes = fs.readFile(path.join(__dirname, './db/db.json'), 'utf-8');
       notes = JSON.parse(notes);
       notes = notes.filter(function(note) {
           if (req.params.id != note.id)
           return true;
           else return false;
       });
-      fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notes));
+      fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(notes));
       res.json(notes);
   });
   })};
