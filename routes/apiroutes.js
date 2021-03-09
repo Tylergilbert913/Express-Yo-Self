@@ -27,7 +27,7 @@ module.exports = (app) => {
       });
     });
 
-    app.delete('/api/notes/:id', (req, res) => {
+    app.delete('/api/notes', (req, res) => {
       let notes = fs.readFileSync(path.join(__dirname, './db/db.json'), 'utf-8');
       notes = JSON.parse(notes);
       notes = notes.filter(function(note) {
