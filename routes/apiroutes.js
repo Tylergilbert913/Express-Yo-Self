@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const express = require("express");
+// const express = require("express");
 
 
 module.exports = (app) => {
@@ -19,7 +19,7 @@ module.exports = (app) => {
       if (err) throw err;
       res.send(data);
       const takerArray = JSON.parse(data);
-      noteObject.push(note);
+      takerArray.push(note);
 
       fs.writeFile('./db/db.json', JSON.stringify(takerArray), err => {
         if (err) throw err;
