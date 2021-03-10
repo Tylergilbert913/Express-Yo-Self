@@ -5,6 +5,7 @@ const express = require("express");
 // exports routes
 module.exports = (app) => {
 
+  // GET route for api
   app.get('/api/notes', (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
@@ -12,7 +13,7 @@ module.exports = (app) => {
     });
   });
 
-  
+  // POST route for api
   app.post('/api/notes', (req, res) => {
     let note = req.body;
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
@@ -20,13 +21,13 @@ module.exports = (app) => {
       res.send(data);
       const takerArray = JSON.parse(data);
       takerArray.push(note);
-
       fs.writeFile('./db/db.json', JSON.stringify(takerArray), err => {
         if (err) throw err;
         return true;
       });
     });
 
+    // DELETE route for api
     app.delete('/api/notes:id', (req, res) => {
       let note = fs.readFile(path.join(__dirname, './db/db.json'), 'utf-8');
       note = JSON.parse(note);
