@@ -30,6 +30,7 @@ module.exports = (app) => {
     app.delete('/api/notes:id', (req, res) => {
       let notes = fs.readFile(path.join(__dirname, './db/db.json'), 'utf-8');
       notes = JSON.parse(notes);
+      console.log("ilove notes:" + notes)
       notes = notes.filter(function(note) {
           if (req.params.id != note.id)
           return true;
