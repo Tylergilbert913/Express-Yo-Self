@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-// const express = require("express");
+const express = require("express");
 
-
+// exports routes
 module.exports = (app) => {
 
   app.get('/api/notes', (req, res) => {
@@ -28,16 +28,16 @@ module.exports = (app) => {
     });
 
     app.delete('/api/notes:id', (req, res) => {
-      let notes = fs.readFile(path.join(__dirname, './db/db.json'), 'utf-8');
-      notes = JSON.parse(notes);
-      console.log("ilove notes:" + notes)
-      notes = notes.filter(function(note) {
+      let note = fs.readFile(path.join(__dirname, './db/db.json'), 'utf-8');
+      note = JSON.parse(note);
+      console.log("is this working:" + note)
+      note = notes.filter(function(note) {
           if (req.params.id != note.id)
           return true;
           else return false;
       });
-      fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(notes));
-      res.json(notes);
+      fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(note));
+      res.json(note);
   });
   })};
 
